@@ -13,5 +13,5 @@ The transport panel is fully operational. The progress indicator is a simple can
 
 
 #### TODO
-The tracks are some sketches that I am currently unable to finish because my computer cannot refrain from overheating in the winterless Luandan heat; which is also why this visualizer isn't particularly involved. The funny thing is that this HP Envy M4 was marketed as a Beats product and yet cannot cope with DSP... Can't say I'm particularly surprised, however greatful I am for the gift.
+The tracks are some sketches that I am currently unable to finish because my computer cannot refrain from overheating in the winterless Luandan heat; which is also why this visualizer isn't particularly involved. The funny thing is that this HP Envy M4 was marketed as a Beats product and yet cannot cope with DSP... Can't say I'm particularly surprised, however greatful I am for the gift.  
 I'll revisit in the coming weeks with/without p5.js and implement some rain, particle, and lindenmeyer systems.  

@@ -1,8 +1,8 @@
 """
 Scan the containing directory for audio files and write their Base64 encodings to an "audio.js" file in the upper directory
 """
+from base64 import b64encode as encode, b64decode as decode
 
-from base64 import b64encode as encode
 import os
 
 
@@ -42,5 +42,16 @@ def scrape():
 
 
 if '__main__' == __name__:
-    scrape()
+    # scrape()
+    t = "eyJ2YWxpZGF0b3IiOiJDQ0QiLCJjdXJyZW50U2VydmljZVN0YXR1cyI6IlNlcnZpY2VBbHJlYWR5UnVubmluZyIsImlzVmFsaWRBR1MiOjEsImlzVmFsaWRDdXN0b21Ib29rUGFja2FnZSI6Mn0="
+    # t = "KFdHIombEnnScyaRZ8KITGV7xBQ7zMRgKIt+pDpbcaw="
+    d = decode(t)
+    print(d)
+    print(d.decode('utf-8'))
+    print(eval(d.decode('utf-8')))
+    print(eval(d.decode('utf-8'))['validator'])
+    # print(hasattr(d, 'decode'))
+    # print(d.decode('utf-8'))
+    print(len(t))
+    print(len(encode(bytes(t, 'utf-8'))))
     

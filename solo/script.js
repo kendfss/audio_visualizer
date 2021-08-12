@@ -11,6 +11,11 @@ const prevButton = document.getElementById('prevButton');
 const nextButton = document.getElementById('nextButton');
 const progressBar = document.getElementById('progressBar');
 
+var framerate = 30; 
+// var dtFrame = (1000/60) * (60 / framerate) - (1000/60) * 0.5; 
+var dtFrame = framerate ** -1; 
+var lastFrame = 0; 
+
 const ctx = sketchpad.getContext('2d');
 const trackCount = len(audios);
 const icons = {
@@ -38,6 +43,9 @@ var lastRadius = 0;
 var fftSize = 32;
 var barWidth;
 
+function Rat() {
+  return currentTrack.currentTime / currentTrack.duration;
+}
 
 function initialize() {
   audioCtx = new AudioContext()
@@ -113,8 +121,8 @@ function setTitles() {
   if (currentTrack) {
     if (currentTrack.paused) {
       pageTitle.innerHTML = 'vizzy';
-      trackNameBox.innerHTML = 'vizzy';
-      trackNameBox.style.visibility = 'hidden';
+      // trackNameBox.innerHTML = 'vizzy';
+      // trackNameBox.style.visibility = 'hidden';
     } else {
       pageTitle.innerHTML = Object.keys(audios)[currentIndex % len(audios)];
       trackNameBox.innerHTML = Object.keys(audios)[currentIndex % len(audios)];
@@ -168,7 +176,15 @@ function drawRotatingVisualizer(bufferLength, barWidth, byteArray, floatArray) {
     let rat = currentTrack.currentTime / currentTrack.duration;
     ctx.rotate(i / Math.PI + (8 + Math.asin(rat)));
     
-    let hue = i * Math.round(r2d(barHeight / peakByte));
+    // let hue = i * Math.round(r2d(barHeight / peakByte));
+    let pb = (peakByte == 0) ? .1 : peakByte;
+    let hue = i * Math.round(r2d(barHeight / pb));
+    // if (hue >= Infinity) {
+      // console.log('hue error')
+    // }
+    // console.log(hue)
+    hue = (hue > 360) ? 360 : hue;
+    hue = (hue < 0) ? 0 : hue;
     ctx.fillStyle = hsl(hue, 20, 50);
     ctx.strokeStyle = rgb(0, 0, 0);
     
@@ -193,7 +209,6 @@ function drawCircle(floatArray) {
   ctx.fill();
 }
 
-
 window.addEventListener('resize', function() {
   sketchpad.width = window.innerWidth;
   sketchpad.height = window.innerHeight;
@@ -207,14 +222,19 @@ currentTrack.addEventListener('ended', function(){
 playButton.addEventListener('click', function() {
   playPause();
   
-  function animate() {
+  function animate(time) {
+    if (time - lastFrame < dtFrame) {
+      requestAnimationFrame(animate);
+      return;
+    }
+    lastFrame = time;
     ctx.clearRect(0, 0, sketchpad.width, sketchpad.height);
     analyser.getByteFrequencyData(byteArray);
     analyser.getFloatTimeDomainData(floatArray);
     drawRotatingVisualizer(bufferLength, barWidth, byteArray, floatArray);
     requestAnimationFrame(animate);
   }
-  animate();
+  animate(currentTrack.currentTime);
 });
 pauseButton.addEventListener('click', function() {
   playPause();

@@ -1,0 +1,14 @@
+html {
+  font-family: Consolas;
+}
+body {
+  /* background: black; */
+  background: #101010;
+}
+#progressBar {
+  background: wheat;
+  height: 10px;
+  width: 100px;
+  visibility: hidden;
+  /* display: none; */
+}

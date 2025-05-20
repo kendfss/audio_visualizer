@@ -1,7 +1,7 @@
 ## Audio Visualizer
 
-^_Warning_, this application features abrupt colour changes on the entire browser viewport. Please avoid watching if you are vulnerable to such visual effects.^  
-^_Note_, this repository is not published with music. That said, you may use the `./b64/b64.go` script to encode audio files in Base64 and generate the required `./static/audio.js` file comprised of an object with 'track_title: track_data' pairs. The script depends on an environment variable called `VISI_AUDIO_PATH` from which audio files are read; the script can be invoked via the `make generate` directive^  
+*<sup>_Warning_, this application features abrupt colour changes on the entire browser viewport. Please avoid watching if you are vulnerable to such visual effects.</sup>  
+*<sup>_Note_, this repository is not published with music. That said, you may use the `./b64/b64.go` script to encode audio files in Base64 and generate the required `./static/audio.js` file comprised of an object with 'track_title: track_data' pairs. The script depends on an environment variable called `VISI_AUDIO_PATH` from which audio files are read; the script can be invoked via the `make generate` directive</sup>  
 
 This is a relatively simple fft-based frequency analyser written in vanilla-js using the WebAudio APIs.  
 

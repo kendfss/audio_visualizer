@@ -1,0 +1,35 @@
+* {
+  font-family: Consolas;
+  font-style: italic;
+  /* font-weight: bold;   */
+  background: #1b1b1b;
+  /* color: hsl(10, 50, 50); */
+}
+
+#pauseButton {
+  display: none;
+}
+
+#progressBar {
+  height: 10px;
+  /* width: 155px; */
+  width: 200px;
+  background: #FFFFFF;
+}
+
+.button:hover {
+  scale: 1.1;
+}
+
+#audio {
+  display: none;
+}
+
+#transportPanel {
+  text-align: center;
+}
+
+p {color: #FFFFFF;
+}
+
+#sketchpad {}

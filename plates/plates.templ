@@ -1,0 +1,43 @@
+package plates
+
+templ header() {
+	<head>
+  	<meta charset="utf-8">
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  	<title id="pageTitle">visi</title>
+  	<link rel="stylesheet" href="./static/style.css">
+  	<script src="./static/itertools.js" type="text/javascript"></script>
+  	<script src="./static/audio.js" type="text/javascript"></script>
+  	<script src="./static/colours.js" type="text/javascript"></script>
+  	<script src="./static/utils.js" type="text/javascript"></script>
+  </head>
+}
+
+templ body() {
+		<body>
+  		<canvas id="sketchpad"></canvas>
+  		<audio id="audio"></audio>
+  		<div id="transportPanel">
+  			<p id="trackNameBox">...</p>
+  			<div id="ctrlButtons">
+  				<img id="prevButton" class="button" src="./assets/icons/cil-media-step-backward.png">
+  				<img id="rewindButton" class="button" src="./assets/icons/cil-media-skip-backward.png">
+  				<img id="playButton" class="button" src="./assets/icons/cil-media-play.png">
+  				<img id="pauseButton" class="button" src="./assets/icons/cil-media-pause.png">
+  				<img id="fowindButton" class="button" src="./assets/icons/cil-media-skip-forward.png">
+  				<img id="nextButton" class="button" src="./assets/icons/cil-media-step-forward.png">			
+  			</div>
+  			<canvas id="progressBar"></canvas>
+  		</div>
+  		<script src="./static/script.js" type="text/javascript"></script>
+  	</body>
+}
+
+templ Home() {
+  <!DOCTYPE html>
+  <html lang="en">
+	  @header()
+  	@body()
+  </html>
+}

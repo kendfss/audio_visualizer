@@ -1,3 +1,4 @@
+#!/usr/bin/env -S python -i
 """
 Scan the containing directory for audio files and write their Base64 encodings to an "audio.js" file in the upper directory
 """
